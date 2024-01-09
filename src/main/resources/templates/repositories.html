@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Moje Repozytoria</title>
+</head>
+<body>
+<h1>Lista Repozytoriów</h1>
+<div th:if="${repositories.isEmpty()}">
+    <p>No repositories found</p>
+</div>
+<div th:unless="${repositories.isEmpty()}">
+    <!-- Pętla przez repozytoria -->
+    <div th:each="repo : ${repositories}">
+        <p th:text="'Nazwa repozytorium: ' + ${repo.name}"></p>
+        <p th:text="'Liczba gwiazdek: ' + ${repo.stars}"></p>
+    </div>
+</div>
+</body>
+</html>
